@@ -2,7 +2,7 @@ import React from "react";
 //import "./Box.css";
 
 function Box(props) {
-    const removeBox = () => props.removeBox(props.id);
+    const remove = () => props.removeBox(props.id);
     return (
       <div className="Box">
         <div className="Box" 
@@ -11,7 +11,7 @@ function Box(props) {
             width: `${props.width}px`,
             height: `${props.height}px`
         }}/>
-        <button onClick={removeBox}>Remove this Box</button>
+        <button onClick={remove}>Remove this Box</button>
       </div>
     );
   }
