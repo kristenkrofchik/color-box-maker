@@ -10,7 +10,7 @@ function BoxList() {
         return (
           <ul>
             {boxes.map((width, height, backgroundColor, id) => (
-              <Box width={width} height={height} backgroundColor={backgroundColor} id={id}/>
+              <Box width={width} height={height} backgroundColor={backgroundColor} id={id} key={id}/>
             ))}
           </ul>
         );
@@ -21,9 +21,13 @@ function BoxList() {
         setBoxes(boxes => [...boxes, newBox]);
       };
 
+    const removeBox = id => {
+      setBoxes(boxes => boxes.filter(box => box.id !== id));
+    }
+
     return (
         <div className="BoxList">
-          <NewBoxForm addBox={addBox} />
+          <NewBoxForm addBox={addBox} removeBox={removeBox} />
           {renderBoxes()}
         </div>
       );
